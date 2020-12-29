@@ -19,11 +19,14 @@ import xlrd
 # file = open('./cityCode.xlsx', 'rb')
 # file = file.decode("utf-8")
 # xlrd.Book.encoding = "gbk"
-data = xlrd.open_workbook(r'./cityCode.xls', encoding_overwrite='utf-8')
+data = xlrd.open_workbook(r'./cityCode.xls')
 index = data.sheet_names()[0]
 sheet2 = data.sheet_by_name(index)
 
+cityCode = []
 # ±éÀú
 nrows = sheet2.nrows
 for i in range(nrows):
+    cityCode.append(sheet2.row_values(i))
+    # print(cityCode)
     print(sheet2.row_values(i))
